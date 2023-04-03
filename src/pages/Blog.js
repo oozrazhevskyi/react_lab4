@@ -1,76 +1,46 @@
 import React, { Component } from 'react'
 import {Col, Row, Card, ListGroup, Container} from "react-bootstrap";
 import BlogPost from '../components/BlogPost'
+import posts from '../blog.data';
+import { useParams } from 'react-router-dom';
 
-export default class Blog extends Component {
 
-  constructor(){
-    super()
-    this.posts = [
-      {
-        'id': '1',
-        'image': 'https://emgotas.files.wordpress.com/2016/11/what-is-a-team.jpg',
-        'title': 'Blog post 1',
-        'description': 'Lorem 1',
-      },
-      {
-        'id': '2',
-        'image': 'https://emgotas.files.wordpress.com/2016/11/what-is-a-team.jpg',
-        'title': 'Blog post 2',
-        'description': 'Lorem 2',
-      },
-      {
-        'id': '3',
-        'image': 'https://emgotas.files.wordpress.com/2016/11/what-is-a-team.jpg',
-        'title': 'Blog post 3',
-        'description': 'Lorem 3',
-      },
-      {
-        'id': '4',
-        'image': 'https://emgotas.files.wordpress.com/2016/11/what-is-a-team.jpg',
-        'title': 'Blog post 4',
-        'description': 'Lorem 4',
-      },
-      {
-        'id': '5',
-        'image': 'https://emgotas.files.wordpress.com/2016/11/what-is-a-team.jpg',
-        'title': 'Blog post 5',
-        'description': 'Lorem 5',
-      },
-    ]
+export default function Blog() {
+  const {category} = useParams('category');
+  console.log(`siudhishg ${category}`);
+  let filteredPosts = posts;
+  if(category){
+    filteredPosts = [...posts.filter(item=>item.category === category)]
   }
 
-  render() {
-    return (
-      <Container className="w-100">
-        <Row>
-          <Col md="9">
-            {this.posts.map((post) => {
-              return <BlogPost post={post} />;
-            })}
-          </Col>
-          <Col md="3">
-            <h5 className="text-center mt-5">Категорії</h5>
+  return (
+    <Container className="w-100">
+      <Row>
+        <Col md="9">
+          {filteredPosts.map((post) => {
+            return <BlogPost key={post.id} post={post} />;
+          })}
+        </Col>
+        <Col md="3">
+          <h5 className="text-center mt-5">Категорії</h5>
 
-            <Card>
-              <ListGroup variant="flush">
-                <ListGroup.Item>категорія 1</ListGroup.Item>
-                <ListGroup.Item>категорія 2</ListGroup.Item>
-                <ListGroup.Item>категорія 3</ListGroup.Item>
-                <ListGroup.Item>категорія 4</ListGroup.Item>
-                <ListGroup.Item>категорія 5</ListGroup.Item>
-              </ListGroup>
-            </Card>
+          <Card>
+            <ListGroup variant="flush">
+              <ListGroup.Item><a href='/blog/'>All</a></ListGroup.Item>
+              <ListGroup.Item><a href='/blog/category/react'>React</a></ListGroup.Item>
+              <ListGroup.Item><a href='/blog/category/web-development'>Web Development</a></ListGroup.Item>
+              <ListGroup.Item><a href='/blog/category/tools'>Tools</a></ListGroup.Item>
+            </ListGroup>
+          </Card>
 
-            <Card className="mt-3 bg-light">
-              <Card.Body>
-                <Card.Title>Slide widget</Card.Title>
-                <Card.Text>Lorem</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    )
-  }
+          <Card className="mt-3 bg-light">
+            <Card.Body>
+              <Card.Title>Slide widget</Card.Title>
+              <Card.Text>Lorem</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  )
 }

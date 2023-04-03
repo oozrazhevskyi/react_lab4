@@ -16,8 +16,10 @@ export default class BlogPost extends Component {
             />
         </div>
         <div className="flex-grow-1 ms-3">
-            <h5>{post.title}</h5>
-            <p>{post.description}</p>
+            <a href={`/blog/${post.id}`}>
+              <h5>{post.title}</h5>
+            </a>
+            <p>{post.shortDescription}</p>
         </div>
         </div>
     )

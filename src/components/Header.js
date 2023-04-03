@@ -20,6 +20,8 @@ import Blog from '../pages/Blog';
 import Team from "../pages/Team";
 
 import logo from "../static/logo192.png";
+import BlogArticle from "../pages/BlogArticle";
+import NotFound from "../pages/NotFound";
 export default function Header() {
     // Modal visibility state
     const [show, setShow] = useState(false);
@@ -170,7 +172,10 @@ export default function Header() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/category/:category" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogArticle />} />
                 <Route path="/team/:id" element={<Team />} />
+                <Route path='*' element={<NotFound />}/>
                 </Routes>
             </Container>
             </main>
