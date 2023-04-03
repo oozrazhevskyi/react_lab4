@@ -17,9 +17,10 @@ export default function Blog() {
     <Container className="w-100">
       <Row>
         <Col md="9">
-          {filteredPosts.map((post) => {
+          {filteredPosts.length? filteredPosts.map((post) => {
             return <BlogPost key={post.id} post={post} />;
-          })}
+          }):
+          <h1>No posts found</h1>}
         </Col>
         <Col md="3">
           <h5 className="text-center mt-5">Категорії</h5>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom';
 import teams from '../teams.data';
 import {
     Card,
@@ -9,7 +9,9 @@ import {
 export default function Team(){
     const {id} = useParams('id');
     const team = teams.filter(item=>item.id == id)[0];
-    console.log(team);
+    if (!team){
+        return <Navigate to="/404" />
+    }
     return (
       <Card className="m-4" bg="light" border="none">
         <Card.Img

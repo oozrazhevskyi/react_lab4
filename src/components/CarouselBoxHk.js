@@ -7,10 +7,10 @@ import {Carousel} from "react-bootstrap";
 class CarouselBoxHk extends Component {
     render() {
         return (
-            <Carousel>
+            <Carousel className='w-50 h-50'>
                 <Carousel.Item>
                     <img
-                    className="d-block"
+                    className="d-block w-100"
                     src={CarpathianMountainsImg}
                     alt="Carpathian Mountains"/>
                     <Carousel.Caption>
@@ -20,7 +20,7 @@ class CarouselBoxHk extends Component {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        className="d-block"
+                        className="d-block w-100"
                         src={EverestImg}
                         alt="Everest"/>
                     <Carousel.Caption>
@@ -30,7 +30,7 @@ class CarouselBoxHk extends Component {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        className="d-block"
+                        className="d-block w-100"
                         src={FjordImg}
                         alt="Fjord"/>
                     <Carousel.Caption>
