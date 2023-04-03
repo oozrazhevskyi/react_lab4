@@ -6,6 +6,7 @@ export default class TeamCard extends Component {
     let image = this.props.image
     let title = this.props.title
     let description = this.props.description
+    let id = this.props.id
     return (
         <Card className="m-4 text-center" bg="light" border="primary">
         <Card.Img
@@ -15,7 +16,7 @@ export default class TeamCard extends Component {
         <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>
-            <Button variant="primary">Про команду</Button>
+            <Button variant="primary" href={`/team/${id}`}>Про команду</Button>
         </Card.Body>
         </Card>
     )

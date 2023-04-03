@@ -17,9 +17,9 @@ import Home from '../pages/Home';
 import Contacts from '../pages/Contacts';
 import About from '../pages/About';
 import Blog from '../pages/Blog';
+import Team from "../pages/Team";
 
 import logo from "../static/logo192.png";
-
 export default function Header() {
     // Modal visibility state
     const [show, setShow] = useState(false);
@@ -170,6 +170,7 @@ export default function Header() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/team/:id" element={<Team />} />
                 </Routes>
             </Container>
             </main>
